@@ -1,0 +1,37 @@
+﻿@model MvcApplication6.Models.Student
+
+@{
+    ViewBag.Title = "Delete Student";
+}
+<h2 style="font-family: 'Big John';text-align: center;">Delete Student</h2>
+
+<h3 class="text-danger" style="font-family: 'Century Gothic';text-align: center;">Are you sure you want to delete this?</h3>
+<table class="table" style="font-family: 'Century Gothic'; margin: 30px auto; max-width: 400px;text-align:center;">
+    <tr class="danger">
+        <th style="text-align: center;">
+            @Html.DisplayFor(model => model.StudentNumber)
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <i class="text-primary fa fa-user fa-5x"></i>
+        </td>
+    </tr>
+    <tr>
+        <td style="font-size: larger;font-weight: bold;">
+            @Html.DisplayFor(model => model.LastName) ,@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Course)
+        </td>
+    </tr>
+</table>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <div class="col-12" style="text-align:center;">
+    <a href="@Url.Action("StudentList")" class="btn btn-primary"><i class="fa fa-reply"> <span style="font-family: 'Century Gothic';">Back to List</span></i></a>
+    <button type="submit" class="btn btn-danger"><i class="fa fa-check"></i> Delete</button>
+</div>
+}

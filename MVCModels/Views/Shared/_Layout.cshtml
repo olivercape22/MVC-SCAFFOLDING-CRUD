@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - MVCModels</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="~/assets/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/assets/css/animate.css" />
+        <link rel="stylesheet" href="~/assets/css/font-awesome.min.css" />
+    </head>
+    <body style="background-color: #dfe8f1; ">
+        <header>
+            <div class="content-wrapper">
+                <div style="text-align: center;">
+                    <nav style="margin: 5px;">
+                        <a href="@Url.Action("StudentList")" style="font-size:smaller;" class="text-link"><i class="fa fa-3x fa-home"></i></a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                <div class="row" style="max-width: 1000px; min-height: 500px; margin: auto; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);padding: 10px;border-radius: 15px; background-color: white;">
+                    <div class="col-12">
+                        @RenderBody()
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer style="margin-top: 10px;">
+            <div class="content-wrapper">
+                <div style="text-align:center;">
+                    <p class="text-muted">&copy; @DateTime.Now.Year - Cape, Valera, Dela Cruz, Drilon - III-BCSAD</p>
+                </div>
+            </div>
+        </footer>
+        <script src="~/assets/js/jquery.min.js"></script>
+        <script src="~/assets/js/bootstrap.min.js"></script>
+    </body>
+</html>

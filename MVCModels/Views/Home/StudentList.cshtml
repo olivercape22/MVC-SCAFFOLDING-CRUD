@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MvcApplication6.Models.Student>
+
+@{
+    ViewBag.Title = "Student List";
+}
+
+
+<h2 style="font-family: 'Big John';text-align: center;">Student List</h2>
+
+<a href="@Url.Action("AddStudent")" class="btn btn-primary"><i class="fa fa-plus"><span style="font-family: 'Century Gothic';"> Add Student</span></i></a>
+<table class="table table-striped" style="font-family: 'Century Gothic'; margin-top: 10px;">
+                <tr class="info">
+                    <th>
+                        @Html.DisplayNameFor(model => model.StudentNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MiddleName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Course)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StudentNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MiddleName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Course)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("EditStudent", new { id = item.Id })" class="btn btn-primary"><i class="fa fa-edit"></i></a> |
+                            <a href="@Url.Action("ViewStudent", new { id = item.Id })" class="btn btn-primary"><i class="fa fa-external-link"></i></a> |
+                            <a href="@Url.Action("DeleteStudent", new { id = item.Id })" class="btn btn-primary"><i class="fa fa-trash-o"></i></a>
+                            @*@Html.ActionLink("Edit", "EditCustomer", new { id = item.Id }) |
+                              @Html.ActionLink("Details", "ViewCustomer", new { id = item.Id }) |
+                              @Html.ActionLink("Delete", "DeleteCustomer", new { id = item.Id })*@
+                        </td>
+                    </tr>
+                }
+
+</table>
+
+
+

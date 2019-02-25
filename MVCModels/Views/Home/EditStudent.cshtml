@@ -1,0 +1,71 @@
+﻿@model MvcApplication6.Models.Student
+
+@{
+    ViewBag.Title = "Edit Student";
+}
+<h2 style="font-family: 'Big John';text-align: center;">Edit Student</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+    <table class="table" style="font-family: 'Century Gothic'; margin: 30px auto; max-width: 400px;">
+        <tr class="info">
+            <th colspan="2" style="text-align: center;">
+                STUDENT
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.StudentNumber, new { @class = "control-label" })
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.StudentNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.StudentNumber, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.LastName, new { @class = "control-label" })
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.FirstName, new { @class = "control-label" })
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.MiddleName, new { @class = "control-label" })
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Course, new { @class = "control-label" })
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Course, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Course, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+    </table>
+
+    <div class="col-12" style="text-align:center;">
+        <a href="@Url.Action("StudentList")" class="btn btn-primary"><i class="fa fa-reply"> <span style="font-family: 'Century Gothic';">Back to List</span></i></a>
+        <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Update</button>
+    </div>
+}
